@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>CodePen - Book Store UI</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/flickity/1.0.0/flickity.css" />
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+  <body>
+    <div class="book-store">
+      <div class="header">
+        <div class="browse">
+          <div class="header-title">read<span>books</span></div>
+          <div class="search-bar">
+            <input type="text" placeholder="Search Book" />
+          </div>
+        </div>
+      </div>
+      <div class="book-slide">
+        <div class="book js-flickity" data-flickity-options='{ "wrapAround": true }'>
+          <div class="book-cell-wrapper">
+          </div>
+        </div>
+      </div>
+    </div>
+
+<script>
+var bookCellWrapper = document.querySelector(".book-cell-wrapper");
+var bookData = [
+  {
+    imgSrc:
+      "https://www.abebooks.com/blog/wp-content/uploads/2016/08/10.jpg",
+    title: "A Tale For The Time Being",
+    author: "by Ruth Ozeki",
+    rating: {
+      numOfVoters: "1,987 voters",
+    },
+    summary:
+      "In Tokyo, sixteen-year-old Nao has decided there’s only one escape from her aching loneliness and her classmates’ bullying.",
+  },{
+    imgSrc:
+      "https://www.abebooks.com/blog/wp-content/uploads/2016/08/10.jpg",
+    title: "A Tale For The Time Being",
+    author: "by Ruth Ozeki",
+    rating: {
+      numOfVoters: "1,987 voters",
+    },
+    summary:
+      "In Tokyo, sixteen-year-old Nao has decided there’s only one escape from her aching loneliness and her classmates’ bullying.",
+  },
+  // add more books here...
+];
+
+// loop through the book data and create HTML for each book
+var booksHtml = "";
+bookData.forEach(function (book) {
+  booksHtml +=
+    '<div class="book-cell">' +
+    '<div class="book-img">' +
+    '<img src="' +
+    book.imgSrc +
+    '" alt="" class="book-photo">' +
+    "</div>" +
+    '<div class="book-content">' +
+    '<div class="book-title">' +
+    book.title +
+    "</div>" +
+    '<div class="book-author">' +
+    book.author +
+    "</div>" +
+    '<div class="rate">' +
+    '<fieldset class="rating purple">' +
+    '<input type="checkbox" id="star11" name="rating" value="5" />' +
+    '<label class="full" for="star11"></label>' +
+    '<input type="checkbox" id="star12" name="rating" value="4" />' +
+    '<label class="full" for="star12"></label>' +
+    '<input type="checkbox" id="star13" name="rating" value="3" />' +
+    '<label class="full" for="star13"></label>' +
+    '<input type="checkbox" id="star14" name="rating" value="2" />' +
+    '<label class="full" for="star14"></label>' +
+    '<input type="checkbox" id="star15" name="rating" value="1" />' +
+    '<label class="full" for="star15"></label>' +
+    "</fieldset>" +
+    '<span class="book-voters">' +
+    book.rating.numOfVoters +
+    "</span>" +
+    "</div>" +
+    '<div class="book-sum">' +
+    book.summary +
+    "</div>" +
+    '<div class="book-see book-pink">See The Book</div>' +
+    "</div>" +
+    "</div>";
+});
+
+// add the HTML for all the books to the book container
+bookCellWrapper.innerHTML = booksHtml;
+
+
+</script>
+
+
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/flickity/1.0.0/flickity.pkgd.js'></script>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
+</body>
+</html>
